@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 <body>
 
     <h1>Sprint 4 IT ACADEMY</h1>
+   
+
+
+  
+    <script src="data.js"></script>
+    <script src="films.js"></script>
+    <script>
+        let director= 'Quentin Tarantino';
+        let genre = 'History';
+    </script>
     
+    <button onclick=getAllDirectors(movies)>directores</button>
+    <button onclick=getMoviesFromDirector(movies,director)>undirector</button>
+    <button onclick=moviesAverageOfDirector(movies,director)>nota media</button>
+    <button onclick=orderAlphabetically(movies)>ordenartitle</button>
+    <button onclick=orderByYear(movies)>ordenaraño</button>
+    <button onclick=moviesAverageByCategory(movies,genre)>cat</button>
+
 </body>
 
 </html>
