@@ -12,8 +12,7 @@ function getAllDirectors(movies) {
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(movies, director) {
   const moviesDirector = movies.filter(directores => directores.director === director);
-  console.log(moviesDirector);
-  return moviesDirector;
+   return moviesDirector;
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
@@ -60,7 +59,7 @@ function orderByYear(movies) {
   const yearAndTitle = (a, b) => ordenadosYear(a, b) || ordenadosTitle(a, b);
 
   const ordenadosYAA = copy.sort(yearAndTitle);
-  console.log(movies); console.log(ordenadosYAA); return ordenadosYAA;
+  console.log(ordenadosYAA); return ordenadosYAA;
 
 
 }
@@ -81,12 +80,58 @@ function moviesAverageByCategory(movies, genre) {
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(movies) {
 
+  function durationMin(duration) {
+    let durationSep = duration.split(' ');
+    let horas = 0;
+    let min = 0;
+    if (durationSep[0]) {
+      horas = Number(durationSep[0].replace('h', " "));
+    }
+    if (durationSep[1]) {
+      min = Number(durationSep[1].replace('min', " "));
+    }
+    let convert = (horas * 60) + min;
+    return convert;
+    
+  }
+
+
+  const newMovies = movies.map(function (film) {
+    let Obj = {};
+    Obj['title'] = film.title;
+    Obj['year'] = film.year;
+    Obj['director'] = film.director;
+    Obj['duration'] = durationMin(film.duration);
+    Obj['score'] = film.score;
+    return Obj;
+  });
+  
+  return newMovies;
 }
+
+
+
+
+
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(movies, year) {
 
+  const copy = movies.slice(0);
+  const filmForYear = copy.filter(data => data.year == year);
+  console.log(filmForYear);
+  let maxScore = Math.max(...filmForYear.map(scores => scores.score));
+  console.log(maxScore);
+ 
+  let filmFilter = filmForYear.filter(x => x.score == maxScore);
+ 
+  console.log(filmFilter); 
+  return filmFilter
+ 
 }
+
+
+
 
 
 
