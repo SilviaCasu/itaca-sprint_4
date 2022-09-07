@@ -60,10 +60,7 @@ function orderByYear(movies) {
 
   const ordenadosYAA = copy.sort(yearAndTitle);
   console.log(ordenadosYAA); return ordenadosYAA;
-
-
 }
-
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory(movies, genre) {
